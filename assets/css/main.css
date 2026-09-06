@@ -1356,17 +1356,34 @@ input, select, textarea {
 					border-left: 0;
 				}
 
-				#header nav ul li a {
-					display: block;
-					min-width: 7.5rem;
-					height: 2.75rem;
-					line-height: 2.75rem;
-					padding: 0 1.25rem 0 1.45rem;
-					text-transform: uppercase;
-					letter-spacing: 0.2rem;
-					font-size: 0.8rem;
-					border-bottom: 0;
-				}
+					#header nav ul {
+						display: flex;
+						padding-left: 0;
+						list-style: none;
+					}
+
+					#header nav ul li {
+						border-left: solid 1px #ffffff;
+					}
+
+					#header nav ul li:first-child {
+						border-left: 0;
+					}
+
+					#header nav ul li a {
+						display: block;
+						width: auto;
+						min-width: 0;
+						height: 2.75rem;
+						line-height: 2.75rem;
+						padding: 0 1.6rem;
+						text-align: center;
+						text-transform: uppercase;
+						letter-spacing: 0.2rem;
+						font-size: 0.8rem;
+						white-space: nowrap;
+						border-bottom: 0;
+					}
 
 					#header nav ul li a:hover {
 						background-color: rgba(255, 255, 255, 0.075);
@@ -1377,14 +1394,7 @@ input, select, textarea {
 					}
 
 		#header nav.use-middle:after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			left: calc(50% - 1px);
-			width: 1px;
-			height: 100%;
-			background: #ffffff;
+			display: none;
 		}
 
 		#header nav.use-middle ul li.is-middle {
@@ -1661,21 +1671,3 @@ input, select, textarea {
 		}
 
 
-		/* Fix for overflowing nav menu links */
-#header nav ul {
-    display: flex;
-    flex-wrap: wrap;       /* Allows buttons to gracefully drop to a new line if the screen is tiny */
-    justify-content: center;
-}
-
-#header nav ul li {
-    padding-left: 0;        /* Clear any default template padding offsets */
-    width: auto !important; /* Forces the buttons to shape themselves to the word size, not a hardcoded 25% width */
-    min-width: 120px;       /* Keeps them looking like evenly spaced buttons */
-    margin: 5px;            /* Adds a tiny gap around the buttons so they don't press up against each other */
-}
-
-#header nav ul li a {
-    min-width: max-content; /* Guarantees the text inside never squishes or breaks into two lines */
-    padding: 0 1.5rem;      /* Gives the button nice padding on the left and right */
-}
