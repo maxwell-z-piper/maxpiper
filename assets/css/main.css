@@ -1659,3 +1659,23 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+
+		/* Fix for overflowing nav menu links */
+#header nav ul {
+    display: flex;
+    flex-wrap: wrap;       /* Allows buttons to gracefully drop to a new line if the screen is tiny */
+    justify-content: center;
+}
+
+#header nav ul li {
+    padding-left: 0;        /* Clear any default template padding offsets */
+    width: auto !important; /* Forces the buttons to shape themselves to the word size, not a hardcoded 25% width */
+    min-width: 120px;       /* Keeps them looking like evenly spaced buttons */
+    margin: 5px;            /* Adds a tiny gap around the buttons so they don't press up against each other */
+}
+
+#header nav ul li a {
+    min-width: max-content; /* Guarantees the text inside never squishes or breaks into two lines */
+    padding: 0 1.5rem;      /* Gives the button nice padding on the left and right */
+}
