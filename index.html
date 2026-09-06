@@ -89,7 +89,7 @@
                                                                                                                                 <p> 
                                                                                                                                     I am very interested in instrumentation - specifically, building the instruments that directly enable doing astronomy. Recently, I have been working to design, build, align, test, and deploy a Reflectometer for the Keck Observatory. The goal of the reflectometer is to measure the reflectance of our primary, secondary, and tertiary mirrors before and after they get recoated to better characterize the decay of the reflective coating over time. 
                                                                                                                                 </p>
-                                                                                                                                <span class="image main"><img src="images/iso.png" alt="" /></span>
+                                                                                                                                
                                                                                                                                 <p>
                                                                                                                                     The general build layout is as follows: we must collimate light from a 0.22 numerical aperture light source ranging from 350nm - 1100nm; have at least a 1 meter separation between the collimating lens, the mirror surface, and the receiving lens; pass the light through an achromat doublet to limit chromatic aberration; have no more than a 4mm spot size into our integration sphere to collect the light; and ensure our configuration works for aspheric mirror surfaces and can survive the hard environment of Maunakea's summit. 
                                                                                                                                 </p>
@@ -107,8 +107,21 @@
 
                                                                                                                                 </div>
                                                                                                                                 <p>
-                                                                                                                                    To achieve this, I have built many Zemax model setups comparing different glass materials, achromat crown-flint combinations, lens curvature values, focal lengths, lens placement locations, and lens conic constants. Of these combinations, we compared the chromatic aberration, geometric spot size at the image plane, and the peak-to-valley wavefront error at the image plane as a function of the number of lenses in the system and the total transmission of the system. With the top 3 designs, I then ran Zemax's tolerancing wizard to determine the manufacturing requirements to build the custom lenses with varying constraints for lens radius, thickness, abbe number, refractive index, and irregularity. This allowed us to balance which setup would perform the best and as which is the most cost-effective. We eventually went with two 75mm OD, 90% CA UV Fused Silica Plano-convex lenses from Thorlabs to act as our collimating and receiving lens. 
+                                                                                                                                    To achieve this, I have built many Zemax model setups comparing different glass materials, achromat crown-flint combinations, lens curvature values, focal lengths, lens placement locations, and lens conic constants. Of these combinations, we compared the chromatic aberration, geometric spot size at the image plane, and the peak-to-valley wavefront error at the image plane as a function of the number of lenses in the system and the total transmission of the system. With the top 2 designs, I then ran Zemax's tolerancing wizard to determine the manufacturing requirements to build the custom lenses with varying constraints for lens radius, thickness, abbe number, refractive index, and irregularity. This allowed us to balance which setup would perform the best and as which is the most cost-effective. I then made ISO 10110 Standard drawings for each lens in the top 2 setups. We eventually went with two 75mm OD, 90% CA UV Fused Silica Plano-convex lenses from Thorlabs to act as our collimating and receiving lens. 
                                                                                                                                 </p>
+                                                                                                                                <div class="plot-carousel">
+
+                                                                                                                                    <button class="plot-arrow left" onclick="changePlot(-1)">&#10094;</button>
+
+                                                                                                                                    <img id="plot-image"
+                                                                                                                                        src="images/chrom_error_numlens.png"
+                                                                                                                                        alt="Reflectometer ISO 10110 Standards Drawings">
+
+                                                                                                                                    <button class="plot-arrow right" onclick="changePlot(1)">&#10095;</button>
+
+                                                                                                                                    <div id="plot-counter">1 / 2</div>
+
+                                                                                                                                </div>
 
                                                                                   </article>
  
@@ -413,5 +426,32 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                                                             (currentPlot + 1) + " / " + plots.length;
                                                     }
                                                 </script>
+
+                                                <script>
+                                                    const plots = [
+                                                        "images/iso.png",
+                                                        "images/iso2.png"
+                                                    ];
+
+                                                    let currentPlot = 0;
+
+                                                    function changePlot(direction) {
+                                                        currentPlot += direction;
+
+                                                        if (currentPlot >= plots.length) {
+                                                            currentPlot = 0;
+                                                        }
+
+                                                        if (currentPlot < 0) {
+                                                            currentPlot = plots.length - 1;
+                                                        }
+
+                                                        document.getElementById("plot-image").src = plots[currentPlot];
+
+                                                        document.getElementById("plot-counter").textContent =
+                                                            (currentPlot + 1) + " / " + plots.length;
+                                                    }
+                                                </script>
+
                 </body>
 </html>
