@@ -1394,7 +1394,14 @@ input, select, textarea {
 					}
 
 		#header nav.use-middle:after {
-			display: none;
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: calc(50% - 1px);
+			width: 1px;
+			height: 100%;
+			background: #ffffff;
 		}
 
 		#header nav.use-middle ul li.is-middle {
