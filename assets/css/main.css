@@ -1678,3 +1678,58 @@ input, select, textarea {
 }
 
 
+.plot-carousel {
+    position: relative;
+    width: 100%;
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.plot-carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.plot-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+
+    width: 3rem;
+    height: 3rem;
+
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    font-size: 1.5rem;
+    line-height: 3rem;
+
+    cursor: pointer;
+}
+
+.plot-arrow.left {
+    left: 1rem;
+}
+
+.plot-arrow.right {
+    right: 1rem;
+}
+
+.plot-arrow:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#plot-counter {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15rem;
+    opacity: 0.75;
+}
+

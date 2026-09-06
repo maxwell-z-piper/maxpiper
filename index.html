@@ -93,13 +93,18 @@
                                                                                                                                 <p>
                                                                                                                                     The general build layout is as follows: we must collimate light from a 0.22 numerical aperture light source ranging from 350nm - 1100nm; have at least a 1 meter separation between the collimating lens, the mirror surface, and the receiving lens; pass the light through an achromat doublet to limit chromatic aberration; have no more than a 4mm spot size into our integration sphere to collect the light; and ensure our configuration works for aspheric mirror surfaces and can survive the hard environment of Maunakea's summit. 
                                                                                                                                 </p>
-                                                                                                                                <div class="image-grid">
-                                                                                                                                    <img src="images/chrom_error_numlens.png" alt="" />
-                                                                                                                                    <img src="images/geospot_numlens.png" alt="" />
-                                                                                                                                    <img src="images/WFerror_numlens.png" alt="" />
-                                                                                                                                    <img src="images/chrom_error_trans.png" alt="" />
-                                                                                                                                    <img src="images/geospot_trans.png" alt="" />
-                                                                                                                                    <img src="images/WFerror_trans.png" alt="" />
+                                                                                                                                <div class="plot-carousel">
+
+                                                                                                                                    <button class="plot-arrow left" onclick="changePlot(-1)">&#10094;</button>
+
+                                                                                                                                    <img id="plot-image"
+                                                                                                                                        src="images/plot1.png"
+                                                                                                                                        alt="Reflectometer optical analysis plot">
+
+                                                                                                                                    <button class="plot-arrow right" onclick="changePlot(1)">&#10095;</button>
+
+                                                                                                                                    <div id="plot-counter">1 / 6</div>
+
                                                                                                                                 </div>
 
                                                                                   </article>
@@ -375,5 +380,35 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                                                 <script src="assets/js/util.js"></script>
                                                 <script src="assets/js/main.js"></script>
  
+
+                                                <script>
+                                                    const plots = [
+                                                        "images/plot1.png",
+                                                        "images/plot2.png",
+                                                        "images/plot3.png",
+                                                        "images/plot4.png",
+                                                        "images/plot5.png",
+                                                        "images/plot6.png"
+                                                    ];
+
+                                                    let currentPlot = 0;
+
+                                                    function changePlot(direction) {
+                                                        currentPlot += direction;
+
+                                                        if (currentPlot >= plots.length) {
+                                                            currentPlot = 0;
+                                                        }
+
+                                                        if (currentPlot < 0) {
+                                                            currentPlot = plots.length - 1;
+                                                        }
+
+                                                        document.getElementById("plot-image").src = plots[currentPlot];
+
+                                                        document.getElementById("plot-counter").textContent =
+                                                            (currentPlot + 1) + " / " + plots.length;
+                                                    }
+                                                </script>
                 </body>
 </html>
