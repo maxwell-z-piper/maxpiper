@@ -111,13 +111,13 @@
                                                                                                                                 </p>
                                                                                                                                 <div class="plot-carousel">
 
-                                                                                                                                    <button class="plot-arrow left" onclick="changePlot(-1)">&#10094;</button>
+                                                                                                                                    <button class="plot-arrow left" onclick="changePlot1(-1)">&#10094;</button>
 
                                                                                                                                     <img id="plot-image"
                                                                                                                                         src="images/iso.png"
                                                                                                                                         alt="Reflectometer ISO 10110 Standards Drawings">
 
-                                                                                                                                    <button class="plot-arrow right" onclick="changePlot(1)">&#10095;</button>
+                                                                                                                                    <button class="plot-arrow right" onclick="changePlot1(1)">&#10095;</button>
 
                                                                                                                                     <div id="plot-counter">1 / 2</div>
 
@@ -428,28 +428,28 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                                                 </script>
 
                                                 <script>
-                                                    const plots = [
+                                                    const plots1 = [
                                                         "images/iso.png",
                                                         "images/iso2.png"
                                                     ];
 
-                                                    let currentPlot = 0;
+                                                    let currentPlot1 = 0;
 
-                                                    function changePlot(direction) {
-                                                        currentPlot += direction;
+                                                    function changePlot1(direction) {
+                                                        currentPlot1 += direction;
 
-                                                        if (currentPlot >= plots.length) {
-                                                            currentPlot = 0;
+                                                        if (currentPlot1 >= plots1.length) {
+                                                            currentPlot1 = 0;
                                                         }
 
-                                                        if (currentPlot < 0) {
-                                                            currentPlot = plots.length - 1;
+                                                        if (currentPlot1 < 0) {
+                                                            currentPlot1 = plots1.length - 1;
                                                         }
 
-                                                        document.getElementById("plot-image").src = plots[currentPlot];
+                                                        document.getElementById("plot-image").src = plots1[currentPlot1];
 
                                                         document.getElementById("plot-counter").textContent =
-                                                            (currentPlot + 1) + " / " + plots.length;
+                                                            (currentPlot1 + 1) + " / " + plots1.length;
                                                     }
                                                 </script>
 
