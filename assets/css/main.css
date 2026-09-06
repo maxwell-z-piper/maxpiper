@@ -1396,11 +1396,6 @@ input, select, textarea {
 		#header nav.use-middle:after {
 			display: none;
 		}
-
-		#header nav.use-middle ul li.is-middle {
-			border-left: 0;
-		}
-
 		body.is-article-visible #header {
 			-moz-transform: scale(0.95);
 			-webkit-transform: scale(0.95);
