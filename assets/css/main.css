@@ -1663,4 +1663,18 @@ input, select, textarea {
 			opacity: 0;
 		}
 
+.image-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin: 2.5rem 0;
+}
+
+.image-grid img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 4px;
+}
+
 
